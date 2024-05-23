@@ -12,6 +12,10 @@ export default function App() {
       { text: enteredGoalText, id: Math.random().toString() },
     ]);
   }
+
+  function deleteGoalHandler() {
+    console.log('DELETE');
+  }
   return (
     <View style={styles.appContainer}>
       {/* <GoalInput setCourseGoals={setCourseGoals} /> AliveKiwi way vid 29 */}
@@ -21,7 +25,12 @@ export default function App() {
         <FlatList
           data={courseGoals}
           renderItem={(itemData) => {
-            return <GoalItem text={itemData.item.text} />;
+            return (
+              <GoalItem
+                text={itemData.item.text}
+                onDeleteItem={deleteGoalHandler}
+              />
+            );
             // return <GoalItem itemData={itemData} />; // AliveKiwi way vid 28
           }}
           keyExtractor={(item, index) => {
