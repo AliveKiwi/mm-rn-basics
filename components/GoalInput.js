@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { StyleSheet, Button, TextInput, View } from 'react-native';
+import { StyleSheet, Button, TextInput, View, Modal } from 'react-native';
 
 // export default function GoalItem({ itemData }) { AliveKiwi's way
 // export default function GoalInput({ setCourseGoals }) { AliveKiwi's way vid 29
@@ -17,15 +17,17 @@ export default function GoalInput(props) {
   }
 
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.textInput}
-        placeholder="Your course goal!"
-        onChangeText={goalInputHandler}
-        value={enteredGoalText}
-      />
-      <Button onPress={addGoalHandler} title="Add Goal" />
-    </View>
+    <Modal visible={props.visible} animationType="fade">
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Your course goal!"
+          onChangeText={goalInputHandler}
+          value={enteredGoalText}
+        />
+        <Button onPress={addGoalHandler} title="Add Goal" />
+      </View>
+    </Modal>
   );
 }
 
