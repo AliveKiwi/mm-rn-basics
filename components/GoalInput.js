@@ -1,6 +1,13 @@
 import { useState } from 'react';
 
-import { StyleSheet, Button, TextInput, View, Modal } from 'react-native';
+import {
+  StyleSheet,
+  Button,
+  TextInput,
+  View,
+  Modal,
+  Image,
+} from 'react-native';
 
 // export default function GoalItem({ itemData }) { AliveKiwi's way
 // export default function GoalInput({ setCourseGoals }) { AliveKiwi's way vid 29
@@ -19,6 +26,11 @@ export default function GoalInput(props) {
   return (
     <Modal visible={props.visible} animationType="fade">
       <View style={styles.inputContainer}>
+        {/* 36 Added Image */}
+        <Image
+          style={styles.image}
+          source={require('../assets/images/goal.png')}
+        />
         <TextInput
           style={styles.textInput}
           placeholder="Your course goal!"
@@ -45,9 +57,14 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 24,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    padding: 16,
+    backgroundColor: '#311b6b', // Changed background color from white
+  },
+  // 36 Added style for image
+  image: {
+    width: 100,
+    height: 100,
+    margin: 20,
   },
   textInput: {
     borderWidth: 1,
