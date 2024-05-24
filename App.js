@@ -11,11 +11,19 @@ export default function App() {
     setModalIsVisible(true);
   }
 
+  // 35 function to close Modal
+  function endAddGoalHandler() {
+    setModalIsVisible(false);
+  }
+
   function addGoalHandler(enteredGoalText) {
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
       { text: enteredGoalText, id: Math.random().toString() },
     ]);
+
+    // 35 To close Modal after adding Goal
+    endAddGoalHandler();
   }
 
   function deleteGoalHandler(id) {
@@ -32,7 +40,11 @@ export default function App() {
         onPress={startAddGoalHandler}
       />
       {modalIsVisible && (
-        <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} />
+        <GoalInput
+          visible={modalIsVisible}
+          onAddGoal={addGoalHandler}
+          onCancel={endAddGoalHandler} // 35 Passing the function to close Modal
+        />
       )}
 
       <View style={styles.goalsContainer}>

@@ -30,7 +30,8 @@ export default function GoalInput(props) {
             <Button onPress={addGoalHandler} title="Add Goal" />
           </View>
           <View style={styles.button}>
-            <Button title="Cancel" />
+            {/* 35 onPress={props.onCancel} */}
+            <Button onPress={props.onCancel} title="Cancel" />
           </View>
         </View>
       </View>
